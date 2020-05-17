@@ -25,3 +25,8 @@ class SessionsController < ApplicationController
     end
   
 end
+
+#did we find someone & did they put in the right password?
+        #if @user && @user.authenticate(params[:user][:password])like in sinatra
+        # try before calling the method it says is my user nill or is my user something if it's nill it will not call authanticate method if it did find the user it will call authanticate
+        #if @user && @user.authenticate(password: params[:user][:password])
