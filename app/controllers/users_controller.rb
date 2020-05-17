@@ -15,7 +15,8 @@ class UsersController < ApplicationController
     end
     
     def show
-        @user = User.find_by_id(params[:id])
+        @user = User.find_by_id(params[:id]) #difference between find_by don't give error like find
+        redirect_to '/' if !@user
     end
 
     private
