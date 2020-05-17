@@ -1,5 +1,6 @@
 <h1>Make a new chocolate!</h1>
-<% form_for(@ice_cream) do |f|%>
+
+<% form_for(@chocolate) do |f|%>
   <div>
     <%= f.label :category %>
     <%= f.text_field :category %>
@@ -8,6 +9,21 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
-
   
+  <p> Select a Brand that already exists: </p>
+  <div>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select One'%>
+    <!--f is object, method is brand.id, collection is Brand.all,value that send to params is :id, desplayed is :name)   -->
+  </div>
+
+  <p> Or create a new Brand: </p>
+  <div>
+    <%=f.fields_for :brand do |b| %>
+      <%= b.label :name %>
+      <%= b.text_field :name %>
+    <% end %>
+  </div>
+  <br>
+  <%= f.submit %>
+<% end %>
 
