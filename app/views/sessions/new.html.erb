@@ -1,0 +1,12 @@
+h1>Sign In!</h1>
+
+<%= form_for(:user) do |f|%> <!--becouse we not creating new user and instatieting one we can't use @user but :user-->
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+    <br><br>
+  <%= f.submit "Sign In" %>
+<% end %>
