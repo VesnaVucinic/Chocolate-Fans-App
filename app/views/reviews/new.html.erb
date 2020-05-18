@@ -1,8 +1,10 @@
+<h1>Add a Review! <%= @review.chocolate.category %> - <%= @review.chocolate.brand.name %></h1>
+
 <%= form_for(@review) do |f|%>
 <br>
  <div>
     <%= f.label :stars %>
-    <%= f.number_field :stars %>
+    <%= f.number_field :stars, min:1, max:5 %>
   </div>
   <br>
   <div>
@@ -12,7 +14,7 @@
   <br>
   <div>
     <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, size: "25x10" %>
   </div>
     <%= f.hidden_field :chocolate_id %>
     <br>
