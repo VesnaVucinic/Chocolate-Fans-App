@@ -5,6 +5,18 @@ class ReviewsController < ApplicationController
         @review = @chocolate.reviews.build #review must know chocolate it's associated with, instatead taht already know about chocolate 
     end
 
+    def create
+        @review = Review.new(review_params)
+        if @review.save
+          redirect_to review_path(@review)
+        else
+          render :new
+        end
+    end
+
+    def show#I don't to need to nested show page becouse one review belongs to only ine chocolate
+    end
+
     def index
     end
 
