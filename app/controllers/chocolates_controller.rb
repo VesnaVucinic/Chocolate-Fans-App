@@ -18,11 +18,11 @@ class ChocolatesController < ApplicationController
         else
             render :new
         end
-     end
+    end
     
-  private
+    private
 
-  def chocolate_params
-    params.require(:chocolate).permit(:category, :description, :brand_id, brand_attributes: [:name])
-  end
+    def chocolate_params
+        params.require(:chocolate).permit(:category, :description, :user_id, :brand_id, brand_attributes: [:name])
+    end
 end

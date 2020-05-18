@@ -10,7 +10,8 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
-  
+
+    
   <p> Select a Brand that already exists: </p>
   <div>
     <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select One'%>
@@ -25,6 +26,7 @@
     <% end %>
   </div>
   <br>
+
   <%= f.submit %>
 <% end %>
 
