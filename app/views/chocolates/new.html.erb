@@ -3,8 +3,9 @@
 <% form_for(@chocolate) do |f|%>
   <div>
     <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.select :category,options_for_select(["Milk", "Dark", "White", "Caramels", "Biscuity", "Fruity&Nutty", "Others"]), include_blank: true  %>
   </div>
+  
   <div>
     <%= f.label :description %>
     <%= f.text_field :description %>
@@ -18,7 +19,7 @@
 
   <p> Or create a new Brand: </p>
   <div>
-    <%=f.fields_for :brand do |b| %>
+    <%=f.fields_for :brand do |b| %> <!--we need to be able to write attributes of another objects which means this needs to be a nested form-->
       <%= b.label :name %>
       <%= b.text_field :name %>
     <% end %>
