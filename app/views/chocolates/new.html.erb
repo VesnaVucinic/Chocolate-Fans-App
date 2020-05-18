@@ -3,7 +3,7 @@
 <% form_for(@chocolate) do |f|%>
   <div>
     <%= f.label :category %>
-    <%= f.select :category,options_for_select(["Milk", "Dark", "White", "Caramels", "Biscuity", "Fruity&Nutty", "Others"]), include_blank: true  %>
+    <%= f.select :category, options_for_select(["Milk", "Dark", "White", "Caramels", "Biscuity", "Fruity&Nutty", "Others"]), include_blank: true  %>
   </div>
   
   <div>
