@@ -1,0 +1,22 @@
+<%= form_for(@review) do |f|%>
+<br>
+ <div>
+    <%= f.label :stars %>
+    <%= f.number_field :stars %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+    <%= f.hidden_field :chocolate_id %>
+    <br>
+    <%= f.submit %>
+ 
+
+<% end %>
