@@ -8,4 +8,10 @@ class ReviewsController < ApplicationController
     def index
     end
 
+    
+    private
+
+    def review_params
+        params.require(:review).permit(:chocolate_id, :content, :stars, :title)
+    end
 end
