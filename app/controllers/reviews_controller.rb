@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
         end
     end
 
-    def show#I don't to need to nested show page becouse one review belongs to only ine chocolate
+    def show#I don't to need to nested show page becouse one review belongs to only ine chocolate 
+        @review = Review.find_by_id(params[:id])
     end
 
     def index
