@@ -3,7 +3,6 @@
 <% @chocolates.each do |chocolate| %>
 
   <h2><%= link_to chocolate.category, chocolate_path(chocolate.id)%> - <%= chocolate.brand.name %> </h2>
-  <%= link_to "Write a review", new_chocolate_review_path%>
   <div>
     <p><%= chocolate.description %></p>
   </div>

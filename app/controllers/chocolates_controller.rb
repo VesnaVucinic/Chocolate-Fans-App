@@ -1,4 +1,9 @@
 class ChocolatesController < ApplicationController
+
+    def index
+        @chocolates = Chocolate.all
+    end
+
     def new
         @chocolate = Chocolate.new
         @chocolate.build_brand #becouse of nested form in new
