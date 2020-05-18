@@ -19,6 +19,13 @@ class ReviewsController < ApplicationController
     end
 
     def index
+        #how do I chack if nested: chocolates/1/reviews
+        if  @chocolate = Chocolate.find_by_id(params[:chocolate_id])# once we have nesed rout it's not :id it's chocolate_id
+            @reviews = @chocolate.reviews
+        else
+        #if it's not nested: /reviews
+            @reviews = Review.all
+        end
     end
 
     
