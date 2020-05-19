@@ -1,4 +1,8 @@
-<h1>Add a Review for <%= @review.chocolate.category %> - <%= @review.chocolate.brand.name %></h1>
+<% if params[:chocolate_id] %>
+    <h1>Add a Review for <%= @review.chocolate.category %> - <%= @review.chocolate.brand.name %></h1>
+<% else %>
+    <h1>Create a review</h1>
+<% end %>
 
 <%= form_for(@review) do |f|%>
 <br>
