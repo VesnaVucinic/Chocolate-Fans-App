@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_103910) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
+    t.string "title"
     t.index ["brand_id"], name: "index_chocolates_on_brand_id"
     t.index ["user_id"], name: "index_chocolates_on_user_id"
   end
