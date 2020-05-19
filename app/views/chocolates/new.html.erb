@@ -1,15 +1,15 @@
 
 <h1>Make a new chocolate!</h1>
 
-<% form_for(@chocolate) do |f|%>
+<%= form_for(@chocolate) do |f|%>
   <div>
     <%= f.label :category %>
     <%= f.select :category, options_for_select(["Milk", "Dark", "White", "Caramels", "Biscuity", "Fruity&Nutty", "Others"]), include_blank: true  %>
   </div>
-  
+  <br>
   <div>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
 
     
