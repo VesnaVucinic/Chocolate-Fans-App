@@ -1,0 +1,14 @@
+<h1><%= @chocolate.category%>  </h1>
+
+<h2> <%= @chocolate.brand_name %> </h2>
+<div>
+  <p><%= @chocolate.description %></p>
+</div>
+
+<h3>Added by: <%= link_to @chocolate.user, user_path(@user)%> </h3>
+
+
+
+<br></br>
+
+<%= link_to "See all Reviews", chocolate_reviews_path(@chocolate) %>

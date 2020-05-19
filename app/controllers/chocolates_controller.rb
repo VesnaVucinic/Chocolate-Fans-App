@@ -19,6 +19,10 @@ class ChocolatesController < ApplicationController
             render :new
         end
     end
+
+    def show
+        @chocolate = Chocolate.find_by(params[:id])
+    end
     
     private
 
