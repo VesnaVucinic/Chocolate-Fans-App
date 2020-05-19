@@ -2,7 +2,7 @@
 <% @reviews.each do |review| %>
 
   <li>
-  <%= review.chocolate.category%>: <%= link_to review.title, review_path(review)%> - <%= review.stars%>
+  <%= review.chocolate.title%> in <%= review.chocolate.category%> chocolates category: <%= link_to review.title, review_path(review)%> - <%= review.stars%>
   </li> <br>
 
 <% end %>
