@@ -1,0 +1,10 @@
+<h1>Add a new brand!</h1>
+
+<%= form_for(@brand) do |f|%>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+    <%= f.submit %>
+<% end %>
