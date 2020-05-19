@@ -6,8 +6,8 @@ class Chocolate < ApplicationRecord
 
   accepts_nested_attributes_for :brand
 
-  validates :title, :category, :description, presence: true
-  validate :not_a_duplicate
+  validates :title, :category, :description, presence: true # built in validation always folowed by attribute to validate
+  validate :not_a_duplicate #singular validate when we have written custom validator, folowed by method written to custom validate
 
   
   def brand_attributes=(attributes)
