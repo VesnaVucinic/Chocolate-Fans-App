@@ -1,3 +1,6 @@
+<%= render partial: 'layouts/errors', locals: {object: @review}  %>
+
+
 <% if params[:chocolate_id] %>
     <h1>Add a Review for <%= @review.chocolate.category %> - <%= @review.chocolate.brand.name %></h1>
 <% else %>
