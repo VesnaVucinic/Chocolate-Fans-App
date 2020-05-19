@@ -15,7 +15,6 @@ class Chocolate < ApplicationRecord
     self.brand
   end
 
-
   def not_a_duplicate
     # if there is already an chocolate with that name && brand, throw an error
     chocolate = Chocolate.find_by(title: title, brand_id: brand_id) # name is just like calling self.name - instance.name
@@ -23,4 +22,17 @@ class Chocolate < ApplicationRecord
       errors.add(:title, 'has already been added for that brand')
     end
   end
+
+  def self.alpha
+    order(:flavor)
+  end
+
+  def brand_name
+    brand.try(:name)
+  end
+
+  def title_and_brand
+    "#{title} - #{brand.try(:name)}"
+  end
+
 end
