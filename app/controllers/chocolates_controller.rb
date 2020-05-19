@@ -4,6 +4,10 @@ class ChocolatesController < ApplicationController
         @chocolates = Chocolate.all
     end
 
+    def show
+        @chocolate = Chocolate.find_by_id(params[:id])
+    end
+
     def new
         @chocolate = Chocolate.new
         @chocolate.build_brand #becouse of nested form in new
@@ -20,9 +24,7 @@ class ChocolatesController < ApplicationController
         end
     end
 
-    def show
-        @chocolate = Chocolate.find_by(params[:id])
-    end
+  
     
     private
 

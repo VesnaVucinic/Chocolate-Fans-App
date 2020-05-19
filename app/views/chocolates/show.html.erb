@@ -1,0 +1,15 @@
+<h1><%= @chocolate.category%>  </h1>
+
+<h2>by <%= @chocolate.brand.name %> </h2>
+<div>
+  <p><%= @chocolate.description %></p>
+</div>
+
+
+
+
+
+<br></br>
+
+<%= link_to "See all Reviews", chocolate_reviews_path(@chocolate) %>
+
