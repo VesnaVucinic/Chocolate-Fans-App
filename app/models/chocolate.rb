@@ -9,6 +9,8 @@ class Chocolate < ApplicationRecord
   validates :title, :category, :description, presence: true # built in validation always folowed by attribute to validate
   validate :not_a_duplicate #singular validate when we have written custom validator, folowed by method written to custom validate
 
+  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
+
   
   def brand_attributes=(attributes)
     self.brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?
@@ -23,15 +25,15 @@ class Chocolate < ApplicationRecord
     end
   end
 
-  def self.alpha
-    order(:flavor)
+  def self.alpha #scope method
+    order(:title)
   end
 
   def brand_name
     brand.try(:name)
   end
 
-  def title_and_brand
+  def title_and_brand #reader method to display title and brand name
     "#{title} - #{brand.try(:name)}"
   end
 

@@ -1,13 +1,13 @@
 class ChocolatesController < ApplicationController
 
     def index
-        @chocolates = Chocolate.all
+        @chocolates = Chocolate.order_by_rating
     end
 
     def show
         @chocolate = Chocolate.find_by_id(params[:id])
     end
-
+!
     def new
         @chocolate = Chocolate.new
         @chocolate.build_brand #becouse of nested form in new
