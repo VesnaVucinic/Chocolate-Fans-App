@@ -2,8 +2,12 @@
 
 <% @chocolates.each do |chocolate| %>
 
-  <h2><%= link_to chocolate.category, chocolate_path(chocolate.id)%> - <%= chocolate.brand.name %> </h2>
+  <h2><%= link_to chocolate.title, chocolate_path(chocolate.id)%>  -  <%= chocolate.brand.name %> </h2>
   
+  <div>
+    <h3><%= chocolate.category %></h3>
+  </div>
+
   <div>
     <p><%= chocolate.description %></p>
   </div>
