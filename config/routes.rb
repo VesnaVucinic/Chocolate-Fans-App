@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'# we already have rout post for creating new user in resources :user, benefit is when we render the page again the URL will say sign up, and we have to hijack our form so that it posts to the sign up rout
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/:provider/callback' => 'sessions#create'
+  #get '/auth/github/callback' => 'sessions#omniauth'
+  #get '/auth/facebook/callback' => 'sessions#create'
+
+
   resources :reviews
   resources :chocolates do
     resources :reviews, only: [:new, :index]
