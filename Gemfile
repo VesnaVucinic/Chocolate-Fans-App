@@ -22,6 +22,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
+ #omniauth gems
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
+gem 'dotenv-rails' #store all our secret info and not push it in git hub,aloweds me to use .env file
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
