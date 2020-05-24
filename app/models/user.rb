@@ -8,4 +8,13 @@ class User < ApplicationRecord
     validates :email, presence: true
 
     has_secure_password #adds authomaticly authenticate method and says validation for password is true and also validate password coformation if there is one
+
+    def self.create_by_github_omniauth(auth)
+        self.find_or_create_by(uid: auth[:info][:id]) do |u|
+          u.password = SecureRandom.hex
+    
+        end
+    end
+  
 end
+
