@@ -1,6 +1,10 @@
 <h1><%= @chocolate.title%>  </h1>
 
 
+<% if @chocolate.image.attached? %>
+  <%= image_tag url_for(@chocolate.image) %>
+<% end %>
+
 <h1><%= @chocolate.category%>  </h1>
 
 <h2>by <%= @chocolate.brand.name %> </h2>
