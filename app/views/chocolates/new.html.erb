@@ -17,8 +17,11 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
+   <br>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+   <br>
 
-    
   <p> Select a Brand that already exists: </p>
   <div>
     <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select One'%>
