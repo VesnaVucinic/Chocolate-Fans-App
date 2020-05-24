@@ -2,6 +2,7 @@
 
 <p>
   <%= link_to "Log In", login_path %>
+  <%= link_to "Log In via Github", "/auth/github" %> <!--we don't need in routes.rb route for this becouse that piece gets taken care of by our omniouth.rb file but we need rout to handel the callback, when GitHub senda us get request we need a rout to direct where that supposed to go-->
   OR
   <%= link_to "Sign Up", signup_path %>
 </p>
