@@ -30,7 +30,9 @@ gem 'omniauth-github'
 gem 'dotenv-rails' #store all our secret info and not push it in git hub,aloweds me to use .env file
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+ gem 'image_processing', '~> 1.2'
+
+ gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

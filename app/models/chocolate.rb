@@ -22,6 +22,10 @@ class Chocolate < ApplicationRecord
     self.brand
   end
 
+  def thumbnail
+    self.image.variant(resize: "100x100")
+  end
+
   def not_a_duplicate
     # if there is already an chocolate with that name && brand, throw an error
     chocolate = Chocolate.find_by(title: title, brand_id: brand_id) # name is just like calling self.name - instance.name

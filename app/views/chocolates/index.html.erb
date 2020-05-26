@@ -1,3 +1,5 @@
+
+
 <h1>All the Chocolates</h1>
 
 <% @chocolates.each do |chocolate| %>
@@ -13,5 +15,13 @@
   </div>
 
   <%= link_to "Write a review", new_chocolate_review_path(chocolate.id)%>
+
+  <div class=img>
+  <% if chocolate.image.attached? %>
+    <%= image_tag url_for(chocolate.thumbnail)%>
+  <% end %>
+  </div>
+
+ 
 
 <% end %>
