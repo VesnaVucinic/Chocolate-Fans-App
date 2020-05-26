@@ -9,6 +9,7 @@ class Chocolate < ApplicationRecord
 
   validates :title, :category, :description, presence: true # built in validation always folowed by attribute to validate
   validate :not_a_duplicate #singular validate when we have written custom validator, folowed by method written to custom validate
+  validate :acceptable_image
 
   scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
   #scope methodes are class level methodsand chage the scope of collection instead to look in all chocolates we are looking only in chocolates that have reviwes
@@ -24,6 +25,19 @@ class Chocolate < ApplicationRecord
 
   def thumbnail
     self.image.variant(resize: "100x100")
+  end
+
+  def acceptable_image
+    return unless image.attached?
+  
+    unless image.byte_size <= 1.megabyte
+      errors.add(:image, "is too big")
+    end
+  
+    acceptable_types = ["image/jpeg", "image/png"]
+    unless acceptable_types.include?(image.content_type)
+      errors.add(:image, "must be a JPEG or PNG")
+    end
   end
 
   def not_a_duplicate
