@@ -29,6 +29,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'dotenv-rails' #store all our secret info and not push it in git hub,aloweds me to use .env file
 
+gem 'bootstrap', '~> 4.5.0'
+
+gem 'jquery-rails'
 # Use Active Storage variant
  gem 'image_processing', '~> 1.2'
 
