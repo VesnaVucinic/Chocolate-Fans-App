@@ -1,8 +1,8 @@
 class ChocolatesController < ApplicationController
     before_action :redirect_if_not_logged_in
-    
+
     def index
-        @chocolates = Chocolate.order_by_rating
+        @chocolates = Chocolate.order_by_rating.includes(:brand)
     end
 
     def show
@@ -31,5 +31,10 @@ class ChocolatesController < ApplicationController
 
     def chocolate_params
         params.require(:chocolate).permit(:title, :category, :description, :user_id, :brand_id, :image, brand_attributes: [:name])
+    end
+
+    def set_ice_cream
+        @chocolate = Chocolate.find_by(params[:id])
+        redirect_to chocolates_path if !@chocolate
     end
 end
