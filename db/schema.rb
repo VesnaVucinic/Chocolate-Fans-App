@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_153916) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "stars"
+    t.float "rating"
     t.string "title"
     t.string "content"
     t.integer "chocolate_id", null: false
