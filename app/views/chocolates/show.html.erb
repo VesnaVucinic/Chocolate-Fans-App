@@ -5,18 +5,19 @@
   <%= image_tag url_for(@chocolate.image) %>
 <% end %>
 
-<h1><%= @chocolate.category%>  </h1>
-
-<h2>by <%= @chocolate.brand.name %> </h2>
 <div>
-  <p><%= @chocolate.description %></p>
+  <h5><strong>Brand: <%= @chocolate.brand.name %></strong> </h5>
+</div>
+ <div>
+    <h6><strong>Category:</strong> <%= @chocolate.category %></h6>
 </div>
 
 
+<div>
+    <p><strong>Description:</strong> <%= @chocolate.description %></p>
+</div>
 
+<br>
 
-
-<br></br>
-
-<%= link_to "See all Reviews", chocolate_reviews_path(@chocolate) %>
+<strong><%= link_to "See all Reviews", chocolate_reviews_path(@chocolate) %></strong>
 

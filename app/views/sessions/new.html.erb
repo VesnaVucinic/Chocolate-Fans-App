@@ -1,15 +1,23 @@
+
+
 <h1>Log In!</h1>
 
 <p><%= flash[:error] %></p><!--added to display error message from controller-->
 
 
 <%= form_for(:user) do |f|%> <!--becouse we not creating new user and instatieting one we can't use @user but :user, this is form for user model and attributes for user model-->
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+ <div class="form-group">
+  <%= f.label :username, "Username:" %>
+  <%= f.text_field :username  %>
 
-  <%= f.label :password %>
+  <%= f.label :password, "Password:" %>
   <%= f.password_field :password %>
 
-    <br><br>
-  <%= f.submit "Log In" %>
+  <input type="checkbox"> Remember me
+
+  <%= f.submit "Log In", class: "btn btn-default btn-primary" %>
+ 
+
 <% end %>
+</div>
+

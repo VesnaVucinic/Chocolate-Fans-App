@@ -1,42 +1,43 @@
-
+<section>
 <h1>Make a new chocolate!</h1>
 <%= render partial: 'layouts/errors', locals: {object: @chocolate}  %>
 
 <%= form_for(@chocolate) do |f|%>
-  <div>
-    <%= f.label :title %>
+  <div class="form-group">
+    <%= f.label :title, class: "col-md-4 control-label"  %>
     <%= f.text_field :title %>
   </div>
   <br>
-  <div>
-    <%= f.label :category %>
+  <div class="form-group">
+    <%= f.label :category, class: "col-md-4 control-label"  %>
     <%= f.select :category, options_for_select(["Milk", "Dark", "White", "Caramels", "Biscuity", "Fruity&Nutty", "Others"]), include_blank: true  %>
   </div>
   <br>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, class: "col-md-4 control-label"  %>
+    <%= f.text_area :description, size: "25x5" %>
   </div>
-   <br>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-   <br>
 
-  <p> Select a Brand that already exists: </p>
-  <div>
-    <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select One'%>
+  <div class="form-group">
+    <%= f.label :image, class: "col-md-4 control-label"  %>
+    <%= f.file_field :image %>
+   </div>
+
+  <div class="form-group">
+    <%= f.label :brand, "Select a Brand that already exists:", class: "col-md-4 control-label"  %>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select One', class: "col-md-4 control-label" %>
     <!--f is object, method is brand.id, collection is Brand.all,value that send to params is :id, desplayed is :name)   -->
   </div>
 
-  <p> Or create a new Brand: </p>
-  <div>
+  <div class="form-group" >
     <%=f.fields_for :brand do |b| %> <!--we need to be able to write attributes of another objects which means this needs to be a nested form-->
-      <%= b.label :name %>
+      <%= b.label :name, "Or create a new Brand:", class: "col-md-4 control-label"  %>
       <%= b.text_field :name %>
     <% end %>
   </div>
   <br>
 
-  <%= f.submit %>
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
 <% end %>
 
+</section>

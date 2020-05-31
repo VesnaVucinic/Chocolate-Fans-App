@@ -1,8 +1,8 @@
 <h1> All the Reviews</h1>
 <% @reviews.each do |review| %>
-
+<div class="form-group">
   <li>
-  <%= review.chocolate.title%> in <%= review.chocolate.category%> chocolates category: <%= link_to review.title, review_path(review)%> - <%= review.stars%>
-  </li> <br>
-
+  <%= review.chocolate.title%> in <%= review.chocolate.category%> chocolates category:
+   <%= link_to review.title, review_path(review)%> - Rating: <%= review.rating.to_i %> <%= "star".pluralize(review.rating.to_i) %>
+</div>
 <% end %>

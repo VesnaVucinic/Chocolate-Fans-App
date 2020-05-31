@@ -1,1 +1,19 @@
 <h1>Welcome <%= @user.username%>! </h1>
+
+<h3>.     Here are the chocolates reviewed by you:</h3><br>
+<ul>
+  
+  <% @user.reviews.each do |review| %>
+  <div class="form-group">
+  <li><%= link_to review.chocolate.title_and_brand, chocolate_path(review.chocolate) %> in <%= review.chocolate.category%> chocolates category. Your review is: <%= link_to review.title, review_path(review)%> - <%= review.rating.to_i%> stars</li>
+  </div>
+ 
+  <% end %>
+</ul>
+
+
+
+<!--<% @user.reviewed_chocolates.each do |chocolate|%>
+  <li><%= link_to chocolate.title_and_brand, chocolate_path(chocolate)%>
+  </li> 
+  <% end %>-->

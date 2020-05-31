@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>ChocolateFansApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS--> 
+   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
- 
-  <div>
-  <%= link_to "Log Out", logout_path, method: :delete %> |
-  <%= link_to "Add a Chocolate", new_chocolate_path %> |
-  <%= link_to "All Chocolates", chocolates_path %> |
-  <%= link_to "Add a Brand", new_brand_path %> | 
-  <%= link_to "All Brands", brands_path %> | 
-  <%= link_to "Add a Review", new_review_path %> |
-  <%= link_to "All Reviews", reviews_path %> |
+  <div class='container'>
+  <header>
+  <nav>
+  <%= link_to "Log Out", logout_path, method: :delete, class: "btn btn-primary"%> 
+  <%= link_to "Add a Chocolate", new_chocolate_path, :class => "btn btn-primary" %> 
+  <%= link_to "All Chocolates", chocolates_path, :class => "btn btn-primary" %> 
+  <%= link_to "Add a Review", new_review_path, :class => "btn btn-primary" %> 
+  <%= link_to "All Reviews", reviews_path, :class => "btn btn-primary" %> 
 
 
 
 
-  </div>
-
+  </nav>
+ </header>
   <body>
+  <div class="wrapper">
+
     <%= yield %>
+  </div>
+    
   </body>
 </html>

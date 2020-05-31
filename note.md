@@ -47,6 +47,8 @@ Reviews
 - content
 
 
+  <%= link_to "Add a Brand", new_brand_path, :class => "btn btn-primary" %>  
+  <%= link_to "All Brands", brands_path, :class => "btn btn-primary" %>  
 
 
 

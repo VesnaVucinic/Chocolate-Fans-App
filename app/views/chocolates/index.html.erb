@@ -1,27 +1,37 @@
 
 
-<h1>All the Chocolates</h1>
-
+<h1>All the Chocolates</h1><br>
+ 
 <% @chocolates.each do |chocolate| %>
-
-  <h2><%= link_to chocolate.title, chocolate_path(chocolate.id)%>  -  <%= chocolate.brand.name %> </h2>
+<div class="form-group">
+  <h3><strong><%= link_to chocolate.title, chocolate_path(chocolate.id)%>  -  <%= chocolate.brand.name %></strong></h3>
   
   <div>
-    <h3><%= chocolate.category %></h3>
+    <h6><strong>Category:</strong> <%= chocolate.category %></h6>
   </div>
 
   <div>
-    <p><%= chocolate.description %></p>
+    
+    <p><strong>Description:</strong> <%= chocolate.description %></p>
   </div>
 
-  <%= link_to "Write a review", new_chocolate_review_path(chocolate.id)%>
+  <div>
+  <% if chocolate.reviews.exists? %>
+    <strong>Avgerage Rating: <%= chocolate.reviews.average(:rating).round(1) %> <%= "star".pluralize(chocolate.reviews.average(:rating).round(1)) %></strong>
+  <% end %>
+  </div>
+<br>
 
   <div class=img>
   <% if chocolate.image.attached? %>
-    <%= image_tag url_for(chocolate.thumbnail)%>
+    <%= image_tag url_for(chocolate.thumbnail)%> 
   <% end %>
   </div>
+<br>
+  <strong><%= link_to "Write a review", new_chocolate_review_path(chocolate.id)%></strong>
 
- 
-
+</div> 
+<br>
+ <hr>
+<br>
 <% end %>

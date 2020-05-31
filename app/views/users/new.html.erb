@@ -2,17 +2,32 @@
 
 <%= render partial: 'layouts/errors', locals: {object: @user}  %>
 
+<form class="form-horizontal center" role="form">
 
 <%= form_for(:user) do |f|%>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+ <div class="form-group">
+    <%= f.label :username, "Username:"%> 
+    <%= f.text_field :username %>
+  
+ 
 
-  <%= f.label :email %>
+  <%= f.label :email, "Email:" %>
   <%= f.email_field :email %>
 
-  <%= f.label :password %>
+  <%= f.label :password, "Password:" %>
   <%= f.password_field :password %>
+</div>
+  <div class="form-group">
+    <label>
+      <input type="checkbox"> Remember me
+    </label>  
+  </div>
 
-    <br><br>
-  <%= f.submit "Sign Up" %>
+<div class="field">
+  <div class="col-md-4">
+    <%= f.submit "Sign Up", class: "btn btn-default btn-primary" %>
+  </div>
+</div>
 <% end %>
+
+</form>
