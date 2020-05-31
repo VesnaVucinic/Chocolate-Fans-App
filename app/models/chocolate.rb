@@ -11,7 +11,7 @@ class Chocolate < ApplicationRecord
   validate :not_a_duplicate #singular validate when we have written custom validator, folowed by method written to custom validate
   validate :acceptable_image
 
-  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
+  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating) desc')}
   #scope methodes are class level methodsand chage the scope of collection instead to look in all chocolates we are looking only in chocolates that have reviwes
 
   def self.alpha #scope method instead collection of chocolates in random order we have collection in alphabetic order
@@ -24,7 +24,7 @@ class Chocolate < ApplicationRecord
   end
 
   def thumbnail
-    self.image.variant(resize: "100x100")
+    self.image.variant(resize: "150x150")
   end
 
   def acceptable_image
@@ -52,8 +52,8 @@ class Chocolate < ApplicationRecord
     brand.try(:name)
   end
 
-  def title_and_brand #reader method to display title and brand name
-    "#{title} - #{brand.try(:name)}"
+  def title_and_brand #reader method to display title of chocolate and brand name
+    "#{title} by #{brand.try(:name)}"
   end
 
 end
