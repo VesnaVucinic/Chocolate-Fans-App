@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+    before_action :redirect_if_not_logged_in
     def new
         # if it's nested
         if @chocolate = Chocolate.find_by_id(params[:chocolate_id])# once we have nesed rout it's not :id it's chocolate_id

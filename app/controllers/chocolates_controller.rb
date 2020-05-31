@@ -1,5 +1,6 @@
 class ChocolatesController < ApplicationController
-
+    before_action :redirect_if_not_logged_in
+    
     def index
         @chocolates = Chocolate.order_by_rating
     end
