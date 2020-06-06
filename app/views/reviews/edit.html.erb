@@ -1,0 +1,40 @@
+<h1>Edit <%= @review.title %></h1>
+
+<%= form_for(@review) do |f|%>
+  <% if params[:chocolate_id] %>
+    <%= f.hidden_field :chocolate_id %>
+  <% else %>
+    <div class="form-group">
+      <%= f.label :chocolate_id, "Select a Chocolate", class: "col-md-4 control-label" %>
+      
+      <%= f.collection_select :chocolate_id, Chocolate.alpha, :id, :title_and_brand, include_blank: true%>
+      
+    </div>
+
+  <% end %>
+  <br>
+  
+    <div class="form-group">
+      <%= f.label :rating, "Rating", class: "col-md-4 control-label" %>
+      <%= f.number_field :rating, min:0, max:5 %>
+    </div>
+ 
+    
+  <br>
+  <div class="form-group">
+    <%= f.label :title, class: "col-md-4 control-label"  %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= f.label :content, class: "col-md-4 control-label"  %>
+    <%= f.text_area :content, size: "25x5" %>
+  </div>
+  <br>
+  <div class="form-group">
+ 
+      <%= f.submit "Submit", class: "btn btn-default btn-primary " %>
+   
+  </div>
+ 
+<% end %>
