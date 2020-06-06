@@ -1,8 +1,10 @@
+
+
 <h1>Sign Up!</h1>
 
 <%= render partial: 'layouts/errors', locals: {object: @user}  %>
 
-<form class="form-horizontal center" role="form">
+
 
 <%= form_for(:user) do |f|%>
  <div class="form-group">
@@ -24,10 +26,9 @@
   </div>
 
 <div class="field">
-  <div class="col-md-4">
+ 
     <%= f.submit "Sign Up", class: "btn btn-default btn-primary" %>
-  </div>
+
 </div>
 <% end %>
 
-</form>
