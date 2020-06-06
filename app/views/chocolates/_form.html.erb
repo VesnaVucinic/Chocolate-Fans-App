@@ -1,0 +1,42 @@
+<%= render partial: 'layouts/errors', locals: {object: @chocolate}  %>
+
+<%= form_for(@chocolate) do |f|%>
+  <div class="form-group">
+    <%= f.label :title, class: "col-md-4 control-label"  %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= f.label :category, class: "col-md-4 control-label"  %>
+    <%= f.select :category, options_for_select(["Milk", "Dark", "White", "Caramels", "Biscuity", "Fruity&Nutty", "Others" ], selected: @chocolate.category)%>
+ </div>
+  <br>
+  <div class="form-group">
+    <%= f.label :description, class: "col-md-4 control-label"  %>
+    <%= f.text_area :description, size: "25x5" %>
+  </div>
+
+ 
+  <div class="form-group">
+    <%= f.label :image, class: "col-md-4 control-label"  %>
+    <%= f.file_field :image %><!--The only difference with other helpers is that you cannot set a default value for file inputs as this would have no meaning.https://guides.rubyonrails.org/v3.1/form_helpers.html-->
+  </div>
+
+  <div class="form-group">
+    <%= f.label :brand, "Select a Brand that already exists:", class: "col-md-4 control-label"  %>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: true,  class: "col-md-4 control-label" %>
+    <!--f is object, method is brand.id, collection is Brand.all,value that send to params is :id, desplayed is :name)   -->
+  </div>
+
+ 
+  <div class="form-group" >
+    <%=f.fields_for :brand do |b| %> <!--we need to be able to write attributes of another objects which means this needs to be a nested form-->
+      <%= b.label :name, "Or create a new Brand:", class: "col-md-4 control-label"  %>
+      <%= b.text_field :name, value: '' %>
+    <% end %>
+  </div>
+  
+  <br>
+
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+<% end %>
