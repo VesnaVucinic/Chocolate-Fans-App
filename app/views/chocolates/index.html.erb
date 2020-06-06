@@ -4,18 +4,18 @@
  
 <% @chocolates.each do |chocolate| %>
 <div class="form-group">
-  <h3><strong><%= link_to chocolate.title, chocolate_path(chocolate.id)%>  -  <%= chocolate.brand.name %></strong></h3>
-  
-  <div>
-    <h6><strong>Category:</strong> <%= chocolate.category %></h6>
+  <h2><strong><%= link_to chocolate.title, chocolate_path(chocolate.id)%>  -  <%= chocolate.brand.name %></strong></h2>
+</div>   
+  <div class="form-group">
+    <strong>Category:</strong> <%= chocolate.category %>
   </div>
 
-  <div>
+ <div class="form-group">
     
-    <p><strong>Description:</strong> <%= chocolate.description %></p>
+    <strong>Description:</strong> <%= chocolate.description %>
   </div>
 
-  <div>
+ <div class="form-group">
   <% if chocolate.reviews.exists? %>
     <strong>Avgerage Rating: <%= chocolate.reviews.average(:rating).round(1) %> <%= "star".pluralize(chocolate.reviews.average(:rating).round(1)) %></strong>
   <% end %>
@@ -28,10 +28,13 @@
   <% end %>
   </div>
 <br>
+<div class="form-group">
   <strong><%= link_to "Write a review", new_chocolate_review_path(chocolate.id)%></strong>
 
 </div> 
 <br>
  <hr>
 <br>
+
 <% end %>
+
