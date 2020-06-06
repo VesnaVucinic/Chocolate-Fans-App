@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
+gem 'omniauth-facebook'
 gem 'dotenv-rails' #store all our secret info and not push it in git hub,aloweds me to use .env file
 
 gem 'bootstrap', '~> 4.5.0'
