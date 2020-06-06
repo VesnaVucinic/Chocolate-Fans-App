@@ -24,7 +24,7 @@ class Chocolate < ApplicationRecord
   end
 
   def thumbnail
-    self.image.variant(resize: "150x150")
+    self.image.variant(resize: "300x230")
   end
 
   def acceptable_image
