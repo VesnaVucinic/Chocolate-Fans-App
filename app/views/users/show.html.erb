@@ -1,6 +1,8 @@
 <h1>Welcome <%= @user.username%>! </h1>
-
-<h3>.     Here are the chocolates reviewed by you:</h3><br>
+<div class="form-group">
+<h3 style="text-indent: 40px">Here are the chocolates reviewed by you:</h3>
+</div>
+<br>
 <ul>
   
   <% @user.reviews.each do |review| %>
