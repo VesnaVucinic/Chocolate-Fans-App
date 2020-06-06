@@ -1,4 +1,14 @@
-<h1><%= @review.title%> - <%= @review.rating%>  </h1>
 
+<h1 ><%= @review.title%> -  
+
+<% @review.rating.to_i.times do  %>
+ <span class="glyphicon glyphicon-star"></span>
+<% end %>
+<% @review.blank_stars.times do %>
+ <span class="glyphicon glyphicon-star-empty"></span>
+<% end %>
+</h1>
 
 <p><%= @review.content%></p>
+<br>
+<strong><%= link_to "Edit Review", edit_review_path(@review.id) if @review.user == current_user%></strong>
