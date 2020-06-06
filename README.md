@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Chocolate Fans App is a web application created for chocolate lovers. It is a rails web application where users can login or signup, browse chocolates created by members, or create an new chocolate and review created chocolates. Chocolates are sorted by categories and can be edited by creator. Reviews can be edited by creator.
 
-Things you may want to cover:
+GitHub: https://github.com/VesnaVucinic/Chocolate-Fans-App
 
-* Ruby version
+## Usage
+To use this app, just clone, run `bundle install`, `rake db:migrate`, `rake db:seed` and then run `rails s`.
+Create your account to Log-in.
 
-* System dependencies
+## Contribution
+For submitting something back, be it a patch, some documentation, or new feature requires some level of community interactions.
 
-* Configuration
+Committing code is easy:
 
-* Database creation
+* Fork this repository
+* Create a local development branch for the bug fix
+* Make the change, and push your local branch to your Github fork with descriptive commits in the standard format.
+* Send me a pull request for your changes to be included
 
-* Database initialization
+## License
+Licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
-* How to run the test suite
+## More Info
+Watch my demo [here](https://youtu.be/RVN4pmcJtF8).
+Read my blog post [here](https://vesnavucinic.github.io/rails_project_-_chocolate_fans_app).
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
