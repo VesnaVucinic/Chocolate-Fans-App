@@ -33,6 +33,7 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails' #store all our secret info and not push it in git hub,aloweds me to use .env file
 
 gem 'bootstrap', '~> 4.5.0'
+gem "websocket-extensions", ">= 0.1.5"
 
 gem 'jquery-rails'
 # Use Active Storage variant
