@@ -7,7 +7,7 @@
   
   <% @user.reviews.each do |review| %>
   <div class="form-group">
-  <li><%= link_to review.chocolate.title_and_brand, chocolate_path(review.chocolate) %> in <%= review.chocolate.category%> chocolates category. Your review is: <%= link_to review.title, review_path(review)%> - <%= review.rating.to_i%> stars</li>
+  <li><%= link_to review.chocolate.title_and_brand, chocolate_path(review.chocolate) %> in <%= review.chocolate.category%> chocolates category. Your review is: <%= link_to review.title, review_path(review)%> - <%= review.rating.to_i%> <%= "star".pluralize(review.rating.to_i) %></li>
   </div>
  
   <% end %>

@@ -1,6 +1,6 @@
 <section>
 <h1>Make a new chocolate!</h1>
-<%= render partial: 'layouts/errors', locals: {object: @chocolate}  %>
+<%= render partial: 'layouts/errors', locals: {object: @chocolate} %>
 
 <%= form_for(@chocolate) do |f|%>
   <div class="form-group">
@@ -26,13 +26,14 @@
   <div class="form-group">
     <%= f.label :brand, "Select a Brand that already exists:", class: "col-md-4 control-label"  %>
     <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select One', class: "col-md-4 control-label" %>
-    <!--f is object, method is brand.id, collection is Brand.all,value that send to params is :id, desplayed is :name)   -->
+    <!--whenever we want to select from something that already exist and drop down collection select works well
+    f is object, method is brand.id and that is attribute I want to asign and that method is coming from belongs_to relationship, collection is Brand.all,value that send to params is :id, desplayed is :name)   -->
   </div>
 
   <div class="form-group" >
-    <%=f.fields_for :brand do |b| %> <!--we need to be able to write attributes of another objects which means this needs to be a nested form-->
-      <%= b.label :name, "Or create a new Brand:", class: "col-md-4 control-label"  %>
-      <%= b.text_field :name %>
+    <%=f.fields_for :brand do |b| %> <!--user have to be able to fill in name of brand, user need to be able to write attributes of another objects which means this needs to be a nested form and nested form stars with fields_for something else i this case for brand-->
+      <%= b.label :name, "Or create a new Brand:", class: "col-md-4 control-label"  %><!--in inspect this is label for chocolate_brand_attributes_name-->
+      <%= b.text_field :name %><!--in inspect input name=chocolate[brand_attributes][name]-->
     <% end %>
   </div>
   <br>
@@ -41,3 +42,9 @@
 <% end %>
 
 </section>
+
+<!--
+collection_select is intended to be used when the list of items is an array of ActiveRecord objects. 
+collection_select is built on the top of select so it's a convenient method when you need to display a collection of objects and
+ not an array of strings. And regarding select , you can use it with a Hash.
+-->

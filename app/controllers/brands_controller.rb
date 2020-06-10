@@ -6,20 +6,20 @@ class BrandsController < ApplicationController
     @brands = Brand.alpha
   end
 
-  def new
-    @brand = Brand.new
-  end
+  # def new
+  #   @brand = Brand.new
+  # end
 
-  def create
-    @brand = Brand.create(brand_params)
-    redirect_to brands_path(@brands)
-  end
+  # def create
+  #   @brand = Brand.create(brand_params)
+  #   redirect_to brands_path(@brands)
+  # end
 
-  private
+  # private
 
-  def brand_params
-    params.require(:brand).permit(:name)
-  end
+  # def brand_params
+  #   params.require(:brand).permit(:name)
+  # end
 
     
 end

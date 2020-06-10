@@ -23,19 +23,19 @@
 <br><br>
 <strong><%= link_to "Edit chocolate", edit_chocolate_path(@chocolate) if @chocolate.user == current_user%></strong>
 <br><br>
-<strong><%= link_to "See all Reviews", chocolate_reviews_path(@chocolate) %></strong>
+<strong><%= link_to "See all Reviews", chocolate_reviews_path(@chocolate) %></strong><!--this links I have becouse of nested rout and index action in reviews_controller in part if it's nested-->
 
 <style> 
-
+  img { 
+    float: left;  
+    margin-right: 50px;
+    padding-right: 20px;         
+  } 
+  p { 
+    text-align: left; 
+    font-size: 25px; 
+  }         
+</style> 
      
        
-        img { 
-            float: left;  
-            margin-right: 50px;
-            padding-right: 20px; 
-        } 
-        p { 
-            text-align: left; 
-            font-size: 25px; 
-        } 
-    </style> 
+        
