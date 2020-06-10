@@ -18,6 +18,10 @@ class Chocolate < ApplicationRecord
   def self.alpha
     order(:title) 
   end
+
+  def max_characters
+    @chocolate = Chocolate.pluck(:title).max_by(&:length)
+  end
   
   def brand_attributes=(attributes)
     self.brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?

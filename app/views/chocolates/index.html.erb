@@ -1,8 +1,6 @@
-
-
 <h1>All the Chocolates</h1><br>
-<div class="gallery">
- 
+
+
 <% @chocolates.each do |chocolate| %>
 <div class="form-group">
   <h2><strong><%= link_to chocolate.title, chocolate_path(chocolate.id)%>  -  <%= chocolate.brand.name %></strong></h2>
@@ -30,7 +28,7 @@
   </div>
 <br>
 <div class="form-group">
-  <strong><%= link_to "Write a review", new_chocolate_review_path(chocolate.id)%></strong>
+  <strong><%= link_to "Write a review", new_chocolate_review_path(chocolate.id)%></strong> <!--I can have this link thanks to nested route path is new_chocolate_review_path and I have to pass in id - chocolate.id-->
 
 </div> 
 <br>
@@ -38,11 +36,4 @@
 <br>
 
 <% end %>
-</div>
-<style> 
 
-
-     
-       
-    
-    </style> 

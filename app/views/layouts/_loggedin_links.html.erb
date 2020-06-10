@@ -1,6 +1,7 @@
 <nav>
-  <%= link_to "Log Out", logout_path, method: :delete, class: "btn btn-primary"%> 
+  <%= link_to "Log Out", logout_path, method: :delete, class: "btn btn-primary"%> <!--by difolt logout_path will be get request, i need jquery for this method delete-->
   <%= link_to "Home", user_path(current_user), :class => "btn btn-primary"%>
+  <%= link_to "Longest Title", longest_title_chocolate_path, :class => "btn btn-primary"%>
   <%= link_to "Add a Chocolate", new_chocolate_path, :class => "btn btn-primary" %> 
   <%= link_to "All Chocolates", chocolates_path, :class => "btn btn-primary" %> 
   <%= link_to "All Brands", brands_path, :class => "btn btn-primary" %>  

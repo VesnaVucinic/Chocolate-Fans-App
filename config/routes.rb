@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/auth/:provider/callback' => 'sessions#create' 
+
+  resources :chocolates do
+    member do
+      get 'longest_title'
+    end
+  end
  
   resources :reviews
   resources :chocolates do #nest my review under chocolate, I want ability to review this chocolate by cliking the link thet will take me to nested rout chocolate/1/review/new
