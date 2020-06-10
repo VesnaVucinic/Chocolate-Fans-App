@@ -46,7 +46,7 @@ class ChocolatesController < ApplicationController
     # end
 
     def update
-        if  @chocolate.update(chocolate_params)
+        if  @chocolate.update(chocolate_params_image)
             
 
             redirect_to chocolate_path(@chocolate)
@@ -67,11 +67,11 @@ class ChocolatesController < ApplicationController
     
     private
 
-    # def chocolate_params
-    #     params.require(:chocolate).permit(:title, :category, :description, :user_id, :brand_id, :image,  brand_attributes: [:name])
-    # end
-
     def chocolate_params
+        params.require(:chocolate).permit(:title, :category, :description, :user_id, :brand_id, :image,  brand_attributes: [:name])
+    end
+
+    def chocolate_params_image
         if params[:chocolate][:image]==""
             params.require(:chocolate).permit(:title, :category, :description, :user_id, :brand_id,   brand_attributes: [:name])
         else

@@ -1,8 +1,8 @@
 class User < ApplicationRecord
     has_many :reviews
-    has_many :reviewed_chocolates, through: :reviews, source: :chocolate #no plural, exectly match like in review table
-    
-    has_many :chocolates #that they have created
+    has_many :reviewed_chocolates, through: :reviews, source: :chocolate # source is in review  belongs_to :chocolate no plural, exectly match like in review table
+    #we need to tell to reviews table what is this refering to and it will refer to belongs_to :chocolate
+    has_many :chocolates #that they have created user.chocolate
     
     validates :username, uniqueness: true,  presence: true #valu what is for login must have validation for uniquenss
     validates :email, uniqueness: true, presence: true
