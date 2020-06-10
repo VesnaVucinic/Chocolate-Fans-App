@@ -20,7 +20,7 @@ class Chocolate < ApplicationRecord
   end
 
   def max_characters
-    @chocolate = Chocolate.pluck(:title).max_by(&:length)
+    chocolate = Chocolate.pluck(:title).max_by(&:length)
   end
   
   def brand_attributes=(attributes)
