@@ -4,32 +4,29 @@ class ReviewsController < ApplicationController
 
     def new
         # if it's nested
-        if params[:chocolate_id] && @chocolate = Chocolate.find_by_id(params[:chocolate_id])# once we have nesed rout it's not :id it's chocolate_id, that is 1 in nested rout chocolate/1/review/new
-            @review = @chocolate.reviews.build #review must know chocolate it's associated with, instatead that already know about chocolate, belongs_to is @chocolate.reviews.build, chocolate has_many reviews
+        if params[:chocolate_id] && @chocolate = Chocolate.find_by_id(params[:chocolate_id])
+            @review = @chocolate.reviews.build 
         else #if not nested
-            @review = Review.new #instantiate new review 
+            @review = Review.new 
         end
     end
 
     def create 
-        #@review = Review.new(review_params)
-        #@review.user_id = session[:user_id] -
-        @review = current_user.reviews.build(review_params)# 2 row abowe will acomplish same thing like this one but someone could manipulate that in hidden field
+        @review = current_user.reviews.build(review_params)
         if @review.save
-          redirect_to review_path(@review) #show path
+          redirect_to review_path(@review) 
         else
           render :new
         end
     end
 
-    def show#I don't to need to nested show page becouse one review belongs to only one chocolate,already directly contains information of object associated with, we already selected one review and authomatilcly know chocolate
+    def show
     end
 
-    def index #for index need to be nested becouse I have all reviews for  chocolate
-        #how do I chack if nested: chocolates/1/reviews, also chacks if is valid id not just nested
-        if  #params[:chocolate_id]
-            @chocolate = Chocolate.find_by_id(params[:chocolate_id])# once we have nesed rout it's not :id it's chocolate_id
-            @reviews = @chocolate.reviews #if it's nested it will show reviews only for that one chocolate
+    def index 
+        if  params[:chocolate_id]
+            @chocolate = Chocolate.find_by_id(params[:chocolate_id])
+            @reviews = @chocolate.reviews 
         else
         #if it's not nested: /reviews
             @reviews = Review.all

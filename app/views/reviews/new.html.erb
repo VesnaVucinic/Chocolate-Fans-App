@@ -2,20 +2,17 @@
 
 <%=  display_header(@review)%>
 
-<%= render partial: 'layouts/errors', locals: {object: @review}  %>
+<%= render partial: 'layouts/errors', locals: {object: @review} %>
 <br>
 
 <%= form_for(@review) do |f|%>
-  <% if params[:chocolate_id] %>
+  <% if params[:chocolate_id] %><!--if it's neasted it will give hidden fiels otherwise it will give drop down selection-->
     <%= f.hidden_field :chocolate_id %>
   <% else %>
     <div class="form-group">
       <%= f.label :chocolate_id, "Select a Chocolate", class: "col-md-4 control-label" %>
-      
-      <%= f.collection_select :chocolate_id, Chocolate.alpha, :id, :title_and_brand, include_blank: true%>
-      
+      <%= f.collection_select :chocolate_id, Chocolate.alpha, :id, :title_and_brand, include_blank: true%><!--I want in drop down menye to desplay title and brend-->
     </div>
-
   <% end %>
   <br>
   
@@ -43,3 +40,11 @@
  
 <% end %>
 
+<!--
+
+f.hidden_field :chocolate_id will prepopulate chocolate_id which I have as attribute in tabel
+ chocolate_reviews GET    /chocolates/:chocolate_id/reviews(.:format)   reviews#index
+                  POST   /chocolates/:chocolate_id/reviews(.:format)    reviews#create
+  new_chocolate_review GET    /chocolates/:chocolate_id/reviews/new(.:format)    reviews#new            
+
+-->
