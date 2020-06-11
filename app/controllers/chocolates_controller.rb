@@ -1,5 +1,5 @@
 class ChocolatesController < ApplicationController
-    before_action :set_chocolate, only:[:show, :edit, :update, :longest_title]
+    before_action :set_chocolate, only:[:show, :edit, :update]
     before_action :redirect_if_not_logged_in
 
     def index
@@ -38,7 +38,7 @@ class ChocolatesController < ApplicationController
         end  
     end
    
-    def longest_title
+    def longest_title 
     end
         
     private

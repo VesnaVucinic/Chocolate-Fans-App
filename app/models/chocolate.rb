@@ -14,14 +14,22 @@ class Chocolate < ApplicationRecord
   
   
   scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating) desc')}
-
+  
   def self.alpha
     order(:title) 
   end
 
-  def max_characters
-    chocolate = Chocolate.pluck(:title).max_by(&:length)
+
+  #It would make more sense to write max_characters as a class method since we are dealing with all the Chocolates and not one instance chocolate.
+  
+  def self.max_characters
+    self.pluck(:title).max_by(&:length)
   end
+  #Chocolate.max_characters.
+
+  # def max_characters
+  #   chocolate = Chocolate.pluck(:title).max_by(&:length)
+  # end
   
   def brand_attributes=(attributes)
     self.brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?

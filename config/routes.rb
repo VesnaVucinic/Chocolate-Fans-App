@@ -9,11 +9,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create' 
 
-  resources :chocolates do
-    member do
-      get 'longest_title'
-    end
-  end
+   get '/longest_title' => 'chocolates#longest_title'
  
   resources :reviews
   resources :chocolates do #nest my review under chocolate, I want ability to review this chocolate by cliking the link thet will take me to nested rout chocolate/1/review/new
